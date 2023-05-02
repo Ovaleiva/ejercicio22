@@ -1,0 +1,16 @@
+def usar_la_fuerza(mochila, objetos_sacados=0):
+    if not mochila:
+        # Caso base: no quedan objetos en la mochila
+        print("No se encontró un sable de luz en la mochila.")
+        return False, objetos_sacados
+    elif mochila[0] == "sable de luz":
+        # Caso base: se encontró un sable de luz en la mochila
+        print("Se encontró un sable de luz en la mochila.")
+        return True, objetos_sacados + 1
+    else:
+        # Caso recursivo: sacar un objeto de la mochila y continuar buscando
+        print(f"Sacando objeto de la mochila: {mochila[0]}")
+        return usar_la_fuerza(mochila[1:], objetos_sacados + 1)
+
+mochila3=['cuchillo','palo','lentes','sable de luz']
+print(usar_la_fuerza(mochila3))
